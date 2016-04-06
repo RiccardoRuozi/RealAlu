@@ -53,9 +53,121 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="0" loc="(430,280)" name="Pin"/>
-    <comp lib="0" loc="(230,200)" name="Pin">
+  </circuit>
+  <circuit name="and">
+    <a name="circuit" val="and"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="50" x="50" y="40"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="60" y="55">a</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="61" y="74">b</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="75" y="64">And</text>
+      <circ-port height="8" pin="130,110" width="8" x="46" y="46"/>
+      <circ-port height="8" pin="130,170" width="8" x="46" y="66"/>
+      <circ-port height="10" pin="440,140" width="10" x="95" y="55"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="67"/>
+    </appear>
+    <wire from="(350,140)" to="(440,140)"/>
+    <wire from="(260,110)" to="(260,120)"/>
+    <wire from="(130,110)" to="(260,110)"/>
+    <wire from="(130,170)" to="(260,170)"/>
+    <wire from="(260,160)" to="(300,160)"/>
+    <wire from="(260,120)" to="(300,120)"/>
+    <wire from="(260,160)" to="(260,170)"/>
+    <comp lib="0" loc="(130,110)" name="Pin">
+      <a name="width" val="8"/>
       <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="0" loc="(440,140)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(130,170)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="1" loc="(350,140)" name="AND Gate">
+      <a name="width" val="8"/>
+      <a name="inputs" val="2"/>
+    </comp>
+  </circuit>
+  <circuit name="or">
+    <a name="circuit" val="or"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="50" x="50" y="50"/>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="59" y="63">a</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="60" y="82">b</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="75" y="73">or</text>
+      <circ-port height="8" pin="150,100" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="150,160" width="8" x="46" y="76"/>
+      <circ-port height="10" pin="380,130" width="10" x="95" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="77"/>
+    </appear>
+    <wire from="(320,130)" to="(380,130)"/>
+    <wire from="(250,150)" to="(250,160)"/>
+    <wire from="(250,100)" to="(250,110)"/>
+    <wire from="(150,100)" to="(250,100)"/>
+    <wire from="(150,160)" to="(250,160)"/>
+    <wire from="(250,110)" to="(270,110)"/>
+    <wire from="(250,150)" to="(270,150)"/>
+    <comp lib="0" loc="(380,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="1" loc="(320,130)" name="OR Gate">
+      <a name="width" val="8"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(150,100)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="0" loc="(150,160)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+  </circuit>
+  <circuit name="notb">
+    <a name="circuit" val="notb"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="21" stroke="#000000" stroke-width="2" width="40" x="50" y="60"/>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="72" y="73">not</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="59" y="75">b</text>
+      <circ-port height="8" pin="180,130" width="8" x="46" y="66"/>
+      <circ-port height="10" pin="400,130" width="10" x="85" y="65"/>
+      <circ-anchor facing="east" height="6" width="6" x="67" y="67"/>
+    </appear>
+    <wire from="(180,130)" to="(270,130)"/>
+    <wire from="(300,130)" to="(400,130)"/>
+    <comp lib="1" loc="(300,130)" name="NOT Gate">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(400,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(180,130)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
     </comp>
   </circuit>
 </project>
