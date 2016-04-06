@@ -5,7 +5,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
-  <lib desc="#Memory" name="4"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#Base" name="6">
     <tool name="Text Tool">
@@ -87,14 +93,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="8"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="1" loc="(350,140)" name="AND Gate">
+      <a name="width" val="8"/>
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="0" loc="(130,170)" name="Pin">
       <a name="width" val="8"/>
       <a name="tristate" val="false"/>
       <a name="label" val="b"/>
-    </comp>
-    <comp lib="1" loc="(350,140)" name="AND Gate">
-      <a name="width" val="8"/>
-      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="or">
@@ -119,12 +125,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(150,160)" to="(250,160)"/>
     <wire from="(250,110)" to="(270,110)"/>
     <wire from="(250,150)" to="(270,150)"/>
-    <comp lib="0" loc="(380,130)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="labelloc" val="east"/>
-    </comp>
     <comp lib="1" loc="(320,130)" name="OR Gate">
       <a name="width" val="8"/>
       <a name="inputs" val="2"/>
@@ -138,6 +138,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="8"/>
       <a name="tristate" val="false"/>
       <a name="label" val="b"/>
+    </comp>
+    <comp lib="0" loc="(380,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="notb">
@@ -155,6 +161,11 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </appear>
     <wire from="(180,130)" to="(270,130)"/>
     <wire from="(300,130)" to="(400,130)"/>
+    <comp lib="0" loc="(180,130)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
     <comp lib="1" loc="(300,130)" name="NOT Gate">
       <a name="width" val="8"/>
     </comp>
@@ -164,10 +175,185 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="8"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(180,130)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="b"/>
+  </circuit>
+  <circuit name="halfadder">
+    <a name="circuit" val="halfadder"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="89" stroke="#000000" stroke-width="2" width="160" x="50" y="50"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="34" y="61">A</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="32" y="130">B</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="224" y="60">S</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="225" y="132">C</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="107" y="94">HalfAdder</text>
+      <circ-port height="8" pin="140,90" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="140,130" width="8" x="46" y="126"/>
+      <circ-port height="10" pin="350,110" width="10" x="205" y="125"/>
+      <circ-port height="10" pin="350,190" width="10" x="205" y="55"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="57"/>
+    </appear>
+    <wire from="(290,190)" to="(350,190)"/>
+    <wire from="(180,90)" to="(180,170)"/>
+    <wire from="(160,130)" to="(160,210)"/>
+    <wire from="(160,210)" to="(240,210)"/>
+    <wire from="(160,130)" to="(240,130)"/>
+    <wire from="(180,170)" to="(240,170)"/>
+    <wire from="(180,90)" to="(240,90)"/>
+    <wire from="(140,90)" to="(180,90)"/>
+    <wire from="(300,110)" to="(350,110)"/>
+    <wire from="(140,130)" to="(160,130)"/>
+    <comp lib="1" loc="(300,110)" name="XOR Gate">
+      <a name="inputs" val="2"/>
     </comp>
+    <comp lib="0" loc="(350,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(383,194)" name="Text">
+      <a name="text" val="C"/>
+    </comp>
+    <comp lib="0" loc="(140,130)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(350,190)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(140,90)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(379,100)" name="Text">
+      <a name="text" val="S"/>
+    </comp>
+    <comp lib="6" loc="(98,94)" name="Text">
+      <a name="text" val="A"/>
+    </comp>
+    <comp lib="6" loc="(101,135)" name="Text">
+      <a name="text" val="B"/>
+    </comp>
+    <comp lib="1" loc="(290,190)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+  </circuit>
+  <circuit name="fulladder">
+    <a name="circuit" val="fulladder"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="110" stroke="#000000" stroke-width="2" width="220" x="50" y="55"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="33" y="65">C0</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="37" y="114">A</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="38" y="164">B</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="280" y="59">S</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="283" y="151">C1</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="151" y="110">FullAdder</text>
+      <circ-port height="8" pin="140,70" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="190,70" width="8" x="46" y="106"/>
+      <circ-port height="8" pin="240,70" width="8" x="46" y="156"/>
+      <circ-port height="10" pin="550,140" width="10" x="265" y="55"/>
+      <circ-port height="10" pin="550,290" width="10" x="265" y="145"/>
+      <circ-anchor facing="east" height="6" width="6" x="77" y="67"/>
+    </appear>
+    <wire from="(490,140)" to="(550,140)"/>
+    <wire from="(380,120)" to="(430,120)"/>
+    <wire from="(330,370)" to="(450,370)"/>
+    <wire from="(330,220)" to="(450,220)"/>
+    <wire from="(140,70)" to="(140,160)"/>
+    <wire from="(240,310)" to="(280,310)"/>
+    <wire from="(240,350)" to="(280,350)"/>
+    <wire from="(190,70)" to="(190,100)"/>
+    <wire from="(140,160)" to="(430,160)"/>
+    <wire from="(190,240)" to="(190,270)"/>
+    <wire from="(510,290)" to="(550,290)"/>
+    <wire from="(190,240)" to="(280,240)"/>
+    <wire from="(190,270)" to="(280,270)"/>
+    <wire from="(190,140)" to="(190,240)"/>
+    <wire from="(190,100)" to="(190,140)"/>
+    <wire from="(140,160)" to="(140,200)"/>
+    <wire from="(240,310)" to="(240,350)"/>
+    <wire from="(450,310)" to="(460,310)"/>
+    <wire from="(450,270)" to="(460,270)"/>
+    <wire from="(240,70)" to="(240,310)"/>
+    <wire from="(450,220)" to="(450,270)"/>
+    <wire from="(140,200)" to="(280,200)"/>
+    <wire from="(140,390)" to="(280,390)"/>
+    <wire from="(450,310)" to="(450,370)"/>
+    <wire from="(330,290)" to="(460,290)"/>
+    <wire from="(190,100)" to="(320,100)"/>
+    <wire from="(140,200)" to="(140,390)"/>
+    <wire from="(190,140)" to="(320,140)"/>
+    <comp lib="1" loc="(330,290)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(510,290)" name="OR Gate">
+      <a name="inputs" val="3"/>
+    </comp>
+    <comp lib="6" loc="(121,41)" name="Text">
+      <a name="text" val="C0"/>
+    </comp>
+    <comp lib="6" loc="(228,36)" name="Text">
+      <a name="text" val="B"/>
+    </comp>
+    <comp lib="0" loc="(550,140)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(190,70)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(563,274)" name="Text">
+      <a name="text" val="C1"/>
+    </comp>
+    <comp lib="6" loc="(177,36)" name="Text">
+      <a name="text" val="A"/>
+    </comp>
+    <comp lib="1" loc="(490,140)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(240,70)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(330,370)" name="AND Gate"/>
+    <comp lib="0" loc="(550,290)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(140,70)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="1" loc="(380,120)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(330,220)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(559,123)" name="Text">
+      <a name="text" val="S"/>
+    </comp>
+  </circuit>
+  <circuit name="adder4bit">
+    <a name="circuit" val="adder4bit"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+  </circuit>
+  <circuit name="adder8bit">
+    <a name="circuit" val="adder8bit"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+  </circuit>
+  <circuit name="sub8bit">
+    <a name="circuit" val="sub8bit"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
   </circuit>
 </project>
